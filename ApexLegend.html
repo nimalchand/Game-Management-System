@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apex Legends System Requirements</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.3);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+      background: rgba(30, 30, 30, 0.75);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      color: #f0f0f0;
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ff4655;
+    }
+
+    h2 {
+      margin-top: 40px;
+      border-bottom: 2px solid #444;
+      padding-bottom: 10px;
+      color: #00e1ff;
+    }
+
+    .game-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 30px;
+      background: rgba(50, 50, 50, 0.5);
+      border-radius: 10px;
+      padding: 15px;
+    }
+
+    .game-info img {
+      width: 90px;
+      height: 90px;
+      border-radius: 10px;
+    }
+
+    .specs-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .spec-card {
+      background-color: rgba(60, 60, 60, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      flex: 1;
+      min-width: 280px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .spec-card:hover {
+      transform: translateY(-5px);
+      background-color: rgba(80, 80, 80, 0.8);
+    }
+
+    .spec-card h4 {
+      color: #ffffff;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #999;
+      padding-bottom: 8px;
+    }
+
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+      color: #ccc;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #ff4655;
+      color: #fff;
+      padding: 12px 24px;
+      margin-top: 30px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #e63746;
+    }
+
+    .center-text {
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      color: #aaa;
+      font-size: 0.9em;
+    }
+
+    .social-icons a {
+      color: #ccc;
+      margin: 0 10px;
+      font-size: 1.2em;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .game-info {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .spec-card {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay loop muted playsinline class="video-bg">
+    <source src="Apex Legends Gameplay Trailer.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container">
+    <h1>Apex Legends System Requirements</h1>
+
+    <div class="game-info">
+      <img src="images.png" alt="Apex Legends Logo">
+      <div>
+        <h3>Apex Legends</h3>
+        <p>Season 20: Breakout</p>
+      </div>
+    </div>
+
+    <p>Before dropping into the Apex Games, ensure your system meets the minimum or recommended requirements below for optimal performance in this fast-paced battle royale.</p>
+
+    <h2>Minimum System Requirements</h2>
+    <div class="specs-section">
+      <div class="spec-card">
+        <h4>Processor</h4>
+        <div class="spec-item"><span>CPU:</span><span>Intel Core i3-6300 / AMD FX-4350</span></div>
+        <div class="spec-item"><span>Speed:</span><span>3.8 GHz</span></div>
+      </div>
+      <div class="spec-card">
+        <h4>Memory & Storage</h4>
+        <div class="spec-item"><span>RAM:</span><span>6 GB</span></div>
+        <div class="spec-item"><span>Storage:</span><span>75 GB (HDD)</span></div>
+      </div>
+      <div class="spec-card">
+        <h4>Graphics & OS</h4>
+        <div class="spec-item"><span>GPU:</span><span>NVIDIA GT 640 / Radeon HD 7730</span></div>
+        <div class="spec-item"><span>OS:</span><span>Windows 10 (64-bit)</span></div>
+      </div>
+    </div>
+
+    <h2>Recommended System Requirements</h2>
+    <div class="specs-section">
+      <div class="spec-card">
+        <h4>Processor</h4>
+        <div class="spec-item"><span>CPU:</span><span>Intel i5-3570K / Ryzen 5</span></div>
+        <div class="spec-item"><span>Speed:</span><span>3.4 GHz</span></div>
+      </div>
+      <div class="spec-card">
+        <h4>Memory & Storage</h4>
+        <div class="spec-item"><span>RAM:</span><span>8 GB</span></div>
+        <div class="spec-item"><span>Storage:</span><span>75 GB SSD</span></div>
+      </div>
+      <div class="spec-card">
+        <h4>Graphics & OS</h4>
+        <div class="spec-item"><span>GPU:</span><span>NVIDIA GTX 970 / Radeon R9 290</span></div>
+        <div class="spec-item"><span>OS:</span><span>Windows 10/11 (64-bit)</span></div>
+      </div>
+    </div>
+
+    <h2>Competitive Settings (144+ FPS)</h2>
+    <div class="specs-section">
+      <div class="spec-card">
+        <h4>Processor</h4>
+        <div class="spec-item"><span>CPU:</span><span>Intel i7-8700K / Ryzen 7 2700</span></div>
+        <div class="spec-item"><span>Speed:</span><span>3.7 GHz</span></div>
+      </div>
+      <div class="spec-card">
+        <h4>Memory & Storage</h4>
+        <div class="spec-item"><span>RAM:</span><span>16 GB</span></div>
+        <div class="spec-item"><span>Storage:</span><span>75 GB NVMe SSD</span></div>
+      </div>
+      <div class="spec-card">
+        <h4>Graphics & OS</h4>
+        <div class="spec-item"><span>GPU:</span><span>RTX 2070 / RX 5700 XT</span></div>
+        <div class="spec-item"><span>OS:</span><span>Windows 10/11 (64-bit)</span></div>
+      </div>
+    </div>
+
+    <div class="center-text">
+      <a href="https://www.ea.com/games/apex-legends" target="_blank" class="button">Visit Official Apex Website</a>
+      <a href="https://www.ea.com/games/apex-legends/play-now-for-free" class="button" style="margin-left: 10px; background-color: #00e1ff; color: #000;">Download Free</a>
+    </div>
+
+    <footer>
+      <p>© 2025 Electronic Arts Inc. Apex Legends™ and the Apex Legends logo are trademarks of Electronic Arts Inc.</p>
+      <div class="social-icons">
+        <a href="https://discord.gg/apexlegends" target="_blank"><i class="fab fa-discord"></i></a>
+        <a href="https://twitter.com/PlayApex" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.youtube.com/playapex" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.twitch.tv/directory/game/Apex%20Legends" target="_blank"><i class="fab fa-twitch"></i></a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Fallback if video doesn't load
+    document.querySelector('.video-bg').addEventListener('error', function() {
+      this.style.display = 'none';
+      document.body.style.background = 'linear-gradient(135deg, #1a1a2e, #16213e)';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styles */
+    body {
+      font-family: 'Segoe UI', sans-serif; /* Default font for the main content */
+      background-color: #141414; /* Dark background */
+      color: white; /* White text color */
+      line-height: 1.6;
+    }
+
+    /* Navbar styling */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1e1e2f; /* Darker background for navbar */
+      padding: 1rem 2rem; /* Padding for the navbar */
+      flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    /* Nav menu */
+    .main-nav .nav-menu {
+      list-style: none; /* Remove bullet points from list */
+      display: flex; /* Display list items in a row */
+      gap: 1.5rem; /* Space between nav items */
+      margin: 0;
+      padding: 0;
+    }
+
+    .main-nav .nav-menu li a {
+      color: white;
+      text-decoration: none; /* Remove underline */
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s ease; /* Smooth color transition on hover */
+    }
+
+    .main-nav .nav-menu li a:hover {
+      color: #6e40ff; /* Hover color for nav links */
+    }
+
+    .main-nav .nav-menu li a i {
+      margin-left: 5px; /* Space for icons next to text */
+      font-size: 0.85em; /* Smaller icon size relative to text */
+    }
+
+    /* Right side (search + login button) */
+    .right-side {
+      display: flex;
+      gap: 10px; /* Space between search box and button */
+      align-items: center;
+    }
+
+    /* Search box */
+    .search-box {
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      border: none;
+      margin-right: 1rem; /* Space before login button */
+      background-color: #2c2c2c; /* Dark background for search box */
+      color: white;
+    }
+
+    /* Login button */
+    .login-btn {
+      background-color: #6e40ff; /* Purple button color */
+      color: white;
+      padding: 0.6rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Smooth background transition */
+    }
+
+    .login-btn:hover {
+      background-color: #5b34cc; /* Darker purple on hover */
+    }
+
+    /* Hero section */
+    /* REMOVED: .hero-grid, .hero-card, .big-card CSS rules */
+
+    /* Game sections */
+    .game-section {
+      padding: 1rem; /* Reduced padding from 2rem to 1rem */
+    }
+
+    /* Specific padding for Action Games section */
+    #action-games-section {
+        padding: 0.5rem 1rem; /* Even smaller padding for top/bottom, 1rem for left/right */
+    }
+
+    .game-section h2 {
+      margin-bottom: 1rem; /* Space below section heading */
+      color: #e0e0e0; /* Slightly lighter white for headings */
+    }
+
+    /* Carousel Container for game grids that need navigation */
+    .carousel-container {
+        display: flex;
+        align-items: center; /* Vertically center the game-grid and buttons */
+        gap: 10px; /* Small gap between buttons and the grid */
+        position: relative; /* Still relative for overall positioning context */
+        overflow: hidden; /* Hide overflowing cards */
+        padding: 0 2rem; /* Padding for the arrows not to be on the edge */
+    }
+
+    /* Game grid layout for game cards - now acts as the carousel track */
+    .game-grid {
+      display: flex; /* Use flexbox for horizontal scrolling/carousel */
+      gap: 1rem; /* Space between game cards */
+      padding-bottom: 1rem; /* Add some space at the bottom for potential scrollbar */
+      overflow-x: auto; /* Enable horizontal scrolling if content overflows */
+      scroll-snap-type: x mandatory; /* Snap to cards for smoother navigation */
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+      scrollbar-width: none; /* Hide scrollbar for Firefox */
+      -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+      flex-grow: 1; /* Allow the game-grid to take up available horizontal space */
+    }
+
+    /* Hide scrollbar for Chrome, Safari, Opera */
+    .game-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Individual game card styling */
+    .game-card {
+      flex: 0 0 auto; /* Prevent cards from growing or shrinking, maintain their size */
+      width: 180px; /* Fixed width for carousel items, adjust as needed */
+      background-color: #333; /* Dark background for game cards */
+      border-radius: 10px; /* Rounded corners for the card */
+      text-align: center;
+      overflow: hidden; /* Ensures content (like image) doesn't spill out */
+      display: flex;
+      flex-direction: column; /* Stack image and content vertically */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+      transition: transform 0.2s ease; /* Smooth hover effect */
+      scroll-snap-align: start; /* Snap point for each card */
+    }
+
+    .game-card:hover {
+      transform: translateY(-5px); /* Lift card slightly on hover */
+    }
+
+    /* Styling for images within game cards - IMPORTANT for fulfilling the box */
+    .game-card img {
+      width: 100%; /* Image takes full width of its parent .game-card */
+      height: 200px; /* Fixed height for consistency */
+      object-fit: cover; /* Crucial: Image covers the area, cropping if necessary */
+      display: block; /* Remove extra space below image */
+      border-radius: 8px 8px 0 0; /* Rounds only the top corners to match the card's top */
+      margin-bottom: 0.5rem; /* Space below the image */
+      transition: transform 0.3s ease;
+    }
+
+    /* Inner content container for text within game card */
+    .game-card-content {
+      padding: 0.5rem 1.5rem; /* Reduced top/bottom padding, kept left/right */
+      flex-grow: 1; /* Allows content to take up remaining space */
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Center text vertically if space allows */
+    }
+
+    /* Paragraph styling within game card */
+    .game-card p {
+      margin: 0; /* Remove default paragraph margins */
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    /* Carousel Navigation Buttons */
+    .carousel-btn {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        border: none;
+        padding: 15px 10px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        z-index: 10; /* Ensure buttons are above cards */
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        flex-shrink: 0; /* Prevent buttons from shrinking */
+    }
+
+    .carousel-btn:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .carousel-btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #1e1e2f; /* Darker background for footer */
+      margin-top: 2rem; /* Space above the footer */
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .main-nav {
+        margin-top: 1rem;
+        width: 100%;
+      }
+      .main-nav .nav-menu {
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+      }
+      .right-side {
+        margin-top: 1rem;
+        width: 100%;
+        justify-content: space-between;
+      }
+      .search-box {
+        margin-right: 0;
+        width: calc(100% - 70px); /* Adjust width to make space for login button */
+      }
+      .hero-grid {
+        grid-template-columns: 1fr; /* Single column for hero section */
+        padding: 1rem;
+      }
+      .big-card {
+        grid-column: span 1; /* Reset span for small screens */
+      }
+      .game-section {
+        padding: 1rem;
+      }
+      /* For smaller screens, the game-grid will scroll */
+      .game-card {
+        width: 150px; /* Smaller fixed width for cards on mobile */
+      }
+      .game-card img {
+        height: 150px; /* Adjust image height for smaller screens */
+      }
+      .carousel-container {
+          padding: 0 1rem; /* Reduce padding for arrows on small screens */
+      }
+    }

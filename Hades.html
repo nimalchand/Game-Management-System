@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hades - System Requirements</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        /* Universal box-sizing for consistent layout */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and HTML root element styles */
+        body, html {
+            height: 100%; /* Full height for video background */
+            font-family: 'Inter', sans-serif; /* Primary font */
+            scroll-behavior: smooth; /* Smooth scrolling for anchors */
+            overflow-x: hidden; /* Prevent horizontal scrollbar */
+            background-color: #1a051a; /* Fallback background color for Hades theme (dark purple) */
+        }
+
+        /* Background Video Styles */
+        .video-bg {
+            position: fixed; /* Fixed position to cover the viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire area without distortion */
+            z-index: -1; /* Place behind other content */
+            filter: brightness(0.3); /* Darken the video for better text readability */
+            transition: filter 0.5s ease; /* Smooth transition for brightness changes */
+        }
+
+        /* Main Container Styles */
+        .container {
+            max-width: 1000px; /* Max width for content */
+            margin: 20px auto; /* Center the container with some top/bottom margin */
+            padding: 40px 20px; /* Internal padding */
+            background: rgba(25, 5, 25, 0.9); /* Semi-transparent dark purple background */
+            border-radius: 15px; /* Rounded corners */
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7); /* Stronger shadow for depth */
+            color: #f0f0f0; /* Light text color */
+            animation: fadeIn 1.5s ease; /* Fade-in animation on load */
+            position: relative; /* For z-index context */
+            overflow: hidden; /* Hide overflowing content, especially for parallax */
+            border: 1px solid #4d0a4d; /* Subtle border */
+        }
+
+        /* Fade-in Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Heading Styles */
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff4500; /* Orange-red for main titles (Hades theme) */
+            text-shadow: 0 0 10px rgba(255, 69, 0, 0.5); /* Orange-red glow */
+        }
+
+        h1 { font-size: 2.5em; }
+
+        h2 {
+            color: #9932cc; /* Medium purple for section titles */
+            margin-top: 40px;
+            border-bottom: 2px solid #9932cc; /* Purple separator line */
+            padding-bottom: 10px;
+        }
+
+        /* Game Info Section */
+        .game-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            background: rgba(40, 10, 40, 0.7); /* Semi-transparent background */
+            border-radius: 10px;
+            padding: 15px;
+            position: relative;
+            z-index: 1; /* Ensure it's above parallax elements */
+        }
+
+        .game-info img {
+            width: 90px;
+            height: 90px;
+            border-radius: 10px;
+            object-fit: contain; /* Ensure logo fits without cropping */
+        }
+
+        /* Specifications Section Layout */
+        .specs-section {
+            display: flex;
+            flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+            gap: 20px; /* Space between spec cards */
+            justify-content: center; /* Center cards horizontally */
+        }
+
+        /* Individual Specification Card */
+        .spec-card {
+            background-color: rgba(35, 5, 35, 0.8); /* Semi-transparent dark background */
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1; /* Allow cards to grow and shrink */
+            min-width: 280px; /* Minimum width before wrapping */
+            transition: all 0.3s ease; /* Smooth hover effects */
+            box-shadow: 0 0 15px rgba(0,0,0,0.4); /* Subtle shadow */
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border-left: 4px solid #ff4500; /* Orange-red border on the left */
+        }
+
+        /* Pseudo-element for hover glow effect */
+        .spec-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,69,0,0.1) 0%, rgba(153,50,204,0) 70%); /* Orange-red/Purple glow */
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        /* Hover effects for spec cards */
+        .spec-card:hover {
+            transform: translateY(-5px); /* Lift card on hover */
+            background-color: rgba(45, 15, 45, 0.9); /* Slightly brighter on hover */
+            box-shadow: 0 0 25px rgba(255,69,0,0.3); /* Enhanced shadow with accent color */
+        }
+
+        .spec-card:hover::before {
+            opacity: 1; /* Show glow on hover */
+        }
+
+        .spec-card h4 {
+            color: #ffffff; /* White heading text */
+            margin-bottom: 15px;
+            border-bottom: 1px solid #888888; /* Separator line */
+            padding-bottom: 8px;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between; /* Space out label and value */
+            margin: 12px 0;
+            color: #cccccc; /* Lighter grey for text */
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #666666;
+        }
+
+        /* Interactive Section Styles */
+        .calculator, .boon-selector, .weapon-aspect-selector, .keepsake-simulator, .scanner {
+            margin-top: 30px;
+            background: rgba(35, 5, 35, 0.7);
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid #4d0a4d;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+
+        .calculator select, .calculator button,
+        .boon-selector select, .boon-selector input, .boon-selector button,
+        .weapon-aspect-selector select, .weapon-aspect-selector button,
+        .keepsake-simulator select, .keepsake-simulator button,
+        .scanner select, .scanner button, .scanner input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background: rgba(45, 15, 45, 0.9);
+            color: white;
+            border: 1px solid #7a2a7a;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Button Styles */
+        button {
+            background: linear-gradient(135deg, #ff4500, #cc3700) !important; /* Hades Orange-red gradient */
+            color: white !important;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none !important;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #cc3700, #ff4500) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+        
+        /* Result Box Styles */
+        .result-box {
+            padding: 15px;
+            background: rgba(45, 15, 45, 0.9);
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #ff4500; /* Orange-red accent border */
+        }
+
+        /* Progress Bar for Stats */
+        .progress-bar {
+            height: 15px;
+            background: #4d0a4d;
+            border-radius: 7px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff4500, #cc3700); /* Orange-red gradient */
+            border-radius: 7px;
+        }
+        .progress-fill.green {
+            background: linear-gradient(90deg, #00cc00, #009900); /* Green for positive */
+        }
+        .progress-fill.blue {
+            background: linear-gradient(90deg, #0099ff, #0066cc); /* Blue for certain stats */
+        }
+
+        /* Boon Selector specific styles */
+        #boonResult {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        #boonResult.strong { color: #ffcc00; } /* Gold for strong synergy */
+        #boonResult.good { color: #9932cc; } /* Purple for good synergy */
+        #boonResult.basic { color: #cccccc; } /* Grey for basic */
+
+        /* Weapon Aspect Selector specific styles */
+        #aspectResult {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        /* Keepsake Simulator specific styles */
+        #keepsakeResult {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        /* Scanner specific styles */
+        .scanner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff4500, #9932cc); /* Orange-red to Purple gradient */
+        }
+
+        .scan-bar {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #ff4500, #9932cc);
+            transition: width 1s;
+        }
+
+        .scan-result-value {
+            font-weight: bold;
+            color: #ff4500; /* Orange-red for positive scan results */
+        }
+
+        /* Tooltip styles */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 220px;
+            background-color: #333344;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9em;
+            border: 1px solid #ff4500; /* Hades Orange-red border */
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Parallax Elements (Font Awesome icons) */
+        .parallax-element {
+            position: absolute;
+            opacity: 0.08; /* Very subtle opacity */
+            z-index: -1; /* Behind content */
+            font-family: 'Font Awesome 6 Free'; /* Ensure Font Awesome is used for icons */
+            font-weight: 900; /* For solid icons */
+            pointer-events: none; /* Ensure elements don't interfere with clicks */
+            color: #9932cc; /* Hades purple for icons */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px auto;
+            }
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; }
+            .game-info { flex-direction: column; text-align: center; }
+            .spec-card { min-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <video autoplay loop muted playsinline class="video-bg">
+        <source src="https://placehold.co/1920x1080/000000/FFFFFF?text=Hades+Trailer" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="parallax-element" id="parallax1" style="top: 15%; left: 8%; font-size: 3rem;"></div> <div class="parallax-element" id="parallax2" style="top: 70%; right: 10%; font-size: 3rem;"></div> <div class="parallax-element" id="parallax3" style="top: 40%; left: 15%; font-size: 2.5rem;"></div> <div class="parallax-element" id="parallax4" style="bottom: 10%; right: 15%; font-size: 2.5rem;"></div> <div class="container">
+        <h1><i class="fas fa-skull-crossbones"></i> HADES</h1>
+        <p style="text-align: center; font-size: 1.1em;">Defy the god of the dead and hack-and-slash your way out of the Underworld! Is your system ready for the endless escape?</p>
+
+        <div class="game-info">
+            <img src="https://placehold.co/90x90/500050/FFFFFF?text=Hades" alt="Hades Logo">
+            <div>
+                <h3>Hades (2020)</h3>
+                <p>The rogue-like dungeon crawler from Supergiant Games.</p>
+            </div>
+        </div>
+
+        <h2>Minimum System Requirements</h2>
+        <div class="specs-section">
+            <div class="spec-card">
+                <h4>Processor</h4>
+                <div class="spec-item"><span>CPU:</span><span>Dual Core 3.0 GHz+</span></div>
+                <div class="spec-item"><span>Cores:</span><span>2 Cores</span></div>
+            </div>
+            <div class="spec-card">
+                <h4>Memory & Storage</h4>
+                <div class="spec-item"><span>RAM:</span><span>4 GB</span></div>
+                <div class="spec-item"><span>Storage:</span><span>15 GB HDD</span></div>
+            </div>
+            <div class="spec-card">
+                <h4>Graphics & OS</h4>
+                <div class="spec-item"><span>GPU:</span><span>1GB VRAM, DirectX 10+</span></div>
+                <div class="spec-item"><span>DirectX:</span><span>Version 10</span></div>
+                <div class="spec-item"><span>OS:</span><span>Windows 7 (64-bit)</span></div>
+            </div>
+        </div>
+
+        <h2>Recommended System Requirements</h2>
+        <div class="specs-section">
+            <div class="spec-card">
+                <h4>Processor</h4>
+                <div class="spec-item"><span>CPU:</span><span>Quad Core 3.0 GHz+</span></div>
+                <div class="spec-item"><span>Cores:</span><span>4 Cores</span></div>
+            </div>
+            <div class="spec-card">
+                <h4>Memory & Storage</h4>
+                <div class="spec-item"><span>RAM:</span><span>8 GB</span></div>
+                <div class="spec-item"><span>Storage:</span><span>15 GB SSD</span></div>
+            </div>
+            <div class="spec-card">
+                <h4>Graphics & OS</h4>
+                <div class="spec-item"><span>GPU:</span><span>2GB VRAM, DirectX 11+</span></div>
+                <div class="spec-item"><span>DirectX:</span><span>Version 11</span></div>
+                <div class="spec-item"><span>OS:</span><span>Windows 10 (64-bit)</span></div>
+            </div>
+        </div>
+
+        <h2>High Performance Settings (120FPS+)</h2>
+        <div class="specs-section">
+            <div class="spec-card">
+                <h4>Processor</h4>
+                <div class="spec-item"><span>CPU:</span><span>Intel Core i7-6700K / AMD Ryzen 5 2600</span></div>
+                <div class="spec-item"><span>Cores:</span><span>6 Cores</span></div>
+            </div>
+            <div class="spec-card">
+                <h4>Memory & Storage</h4>
+                <div class="spec-item"><span>RAM:</span><span>16 GB</span></div>
+                <div class="spec-item"><span>Storage:</span><span>15 GB NVMe SSD</span></div>
+            </div>
+            <div class="spec-card">
+                <h4>Graphics & OS</h4>
+                <div class="spec-item"><span>GPU:</span><span>NVIDIA GeForce GTX 1070 / AMD Radeon RX 580 (8GB VRAM)</span></div>
+                <div class="spec-item"><span>DirectX:</span><span>Version 11</span></div>
+                <div class="spec-item"><span>OS:</span><span>Windows 10/11 (64-bit)</span></div>
+            </div>
+        </div>
+
+        <div class="calculator">
+            <h3><i class="fas fa-chart-line"></i> Escape Attempt Frame Rate</h3>
+            <p>Estimate your FPS as you fight your way out of the Underworld!</p>
+            <select id="hadesCPU">
+                <option value="low">Low-end CPU (Dual Core)</option>
+                <option value="mid" selected>Mid-range CPU (Quad Core)</option>
+                <option value="high">High-end CPU (Hexa Core+)</option>
+            </select>
+
+            <select id="hadesGPU">
+                <option value="low">Low-end GPU (1GB VRAM)</option>
+                <option value="mid" selected>Mid-range GPU (2GB VRAM)</option>
+                <option value="high">High-end GPU (4GB+ VRAM)</option>
+            </select>
+
+            <select id="hadesRes">
+                <option value="1080">1080p</option>
+                <option value="1440">1440p</option>
+                <option value="4k">4K</option>
+            </select>
+
+            <select id="hadesSettings">
+                <option value="low">Low Settings</option>
+                <option value="medium" selected>Medium Settings</option>
+                <option value="high">High Settings</option>
+            </select>
+
+            <button onclick="calculateHadesFPS()">Begin Escape!</button>
+            <div id="hadesFPSResult" class="result-box"></div>
+        </div>
+
+        <div class="boon-selector">
+            <h3><i class="fas fa-hand-sparkles"></i> Boon Synergy Planner</h3>
+            <p>Combine boons from different gods to see potential synergies.</p>
+            
+            <label for="god1">First God:</label>
+            <select id="god1">
+                <option value="zeus">Zeus (Lightning)</option>
+                <option value="poseidon">Poseidon (Dash/Knockback)</option>
+                <option value="athena">Athena (Deflect)</option>
+                <option value="ares">Ares (Doom)</option>
+                <option value="artemis">Artemis (Crit)</option>
+                <option value="aphrodite">Aphrodite (Weak)</option>
+                <option value="dionysus">Dionysus (Hangover)</option>
+                <option value="demeter">Demeter (Chill)</option>
+                <option value="hermes">Hermes (Speed/Dodge)</option>
+            </select>
+
+            <label for="god2">Second God (Optional):</label>
+            <select id="god2">
+                <option value="none">None</option>
+                <option value="zeus">Zeus (Lightning)</option>
+                <option value="poseidon">Poseidon (Dash/Knockback)</option>
+                <option value="athena">Athena (Deflect)</option>
+                <option value="ares">Ares (Doom)</option>
+                <option value="artemis">Artemis (Crit)</option>
+                <option value="aphrodite">Aphrodite (Weak)</option>
+                <option value="dionysus">Dionysus (Hangover)</option>
+                <option value="demeter">Demeter (Chill)</option>
+                <option value="hermes">Hermes (Speed/Dodge)</option>
+            </select>
+
+            <button onclick="planBoonSynergy()">Seek Blessings!</button>
+            <div id="boonResult" class="result-box"></div>
+        </div>
+
+        <div class="weapon-aspect-selector">
+            <h3><i class="fas fa-fist-raised"></i> Weapon Aspect Selector</h3>
+            <p>Discover the unique powers of each Infernal Arm's aspect.</p>
+            
+            <label for="weapon">Select Weapon:</label>
+            <select id="weapon">
+                <option value="stygius">Stygius (Sword)</option>
+                <option value="coronacht">Coronacht (Bow)</option>
+                <option value="aegis">Aegis (Shield)</option>
+                <option value="malphon">Malphon (Fists)</option>
+                <option value="spear">Eternal Spear</option>
+                <option value="rail">Adamant Rail</option>
+            </select>
+
+            <label for="aspect">Select Aspect:</label>
+            <select id="aspect">
+                </select>
+
+            <button onclick="selectWeaponAspect()">Reveal Aspect!</button>
+            <div id="aspectResult" class="result-box"></div>
+        </div>
+
+        <div class="keepsake-simulator">
+            <h3><i class="fas fa-gem"></i> Keepsake Effectiveness Guide</h3>
+            <p>Choose a keepsake and see its primary effect and recommended use.</p>
+            
+            <label for="keepsake">Select Keepsake:</label>
+            <select id="keepsake">
+                <option value="thunderbolt">Everlasting Thunderbolt (Zeus)</option>
+                <option value="conch">Conch Shell (Poseidon)</option>
+                <option value="aegis">Broken Spearpoint (Athena)</option>
+                <option value="collar">Old Spiked Collar (Cerberus)</option>
+                <option value="plume">Lambent Plume (Hermes)</option>
+                <option value="shackle">Shattered Shackle (Sisyphus)</option>
+            </select>
+
+            <button onclick="guideKeepsakeEffectiveness()">Consult Oracle!</button>
+            <div id="keepsakeResult" class="result-box"></div>
+        </div>
+
+        <div class="scanner">
+            <h3>System Compatibility Scanner</h3>
+            <p>Scan your system to see if you can defy Hades!</p>
+            <button id="startScan" class="button" style="width: 100%;">Start System Scan</button>
+            
+            <div class="scan-progress">
+                <div class="scan-bar" id="scanBar"></div>
+            </div>
+            
+            <div class="scan-results" id="scanResults">
+                <h4>Scan Results:</h4>
+                <div class="scan-result-item">
+                    <span class="scan-result-label">CPU Performance:</span>
+                    <span class="scan-result-value" id="cpuResult">-</span>
+                </div>
+                <div class="scan-result-item">
+                    <span class="scan-result-label">GPU Performance:</span>
+                    <span class="scan-result-value" id="gpuResult">-</span>
+                </div>
+                <div class="scan-result-item">
+                    <span class="scan-result-label">RAM:</span>
+                    <span class="scan-result-value" id="ramResult">-</span>
+                </div>
+                <div class="scan-result-item">
+                    <span class="scan-result-label">Storage:</span>
+                    <span class="scan-result-value" id="storageResult">-</span>
+                </div>
+                <div class="scan-result-item">
+                    <span class="scan-result-label">Overall Rating:</span>
+                    <span class="scan-result-value" id="overallResult">-</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="center-text">
+            <a href="https://www.supergiantgames.com/games/hades/" target="_blank" class="button">Visit Official Hades Website</a>
+            <a href="https://store.steampowered.com/app/1145360/Hades/" class="button" style="margin-left: 10px; background-color: #9932cc;">Get on Steam</a>
+        </div>
+
+        <footer>
+            <p>© 2025 Supergiant Games, LLC. Hades and Supergiant Games are trademarks of Supergiant Games, LLC.</p>
+            <div class="social-icons">
+                <a href="https://discord.com/invite/supergiant" target="_blank"><i class="fab fa-discord"></i></a>
+                <a href="https://twitter.com/SupergiantGames" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com/embed/sYJj-g3n0mQ?autoplay=0&mute=1" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.twitch.tv/directory/game/Hades" target="_blank"><i class="fab fa-twitch"></i></a>
+                <a href="https://www.reddit.com/r/HadesTheGame/" target="_blank"><i class="fab fa-reddit"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="hades_script.js"></script>
+</body>
+</html>

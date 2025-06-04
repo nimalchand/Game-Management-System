@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>F1 Racing - System Requirements</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body, html {
+      margin: 0; padding: 0; box-sizing: border-box;
+      height: 100%; font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .video-bg {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; z-index: -1;
+      filter: brightness(0.3);
+    }
+
+    .container {
+      max-width: 1000px; margin: auto;
+      padding: 40px 20px; background: rgba(30,30,30,0.75);
+      border-radius: 15px; backdrop-filter: blur(10px);
+      color: #f0f0f0; box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    h1, h2 {
+      text-align: center; margin-bottom: 20px;
+      color: #e10600; /* F1 red */
+    }
+
+    h2 { color: #00d2be; /* F1 teal */ margin-top: 40px; }
+
+    .specs-section {
+      display: flex; flex-wrap: wrap;
+      gap: 20px; justify-content: center;
+    }
+
+    .spec-card {
+      background-color: rgba(60,60,60,0.7);
+      padding: 20px; border-radius: 10px;
+      flex: 1; min-width: 280px;
+      transition: 0.3s ease;
+      border-left: 4px solid #e10600;
+    }
+
+    .spec-card:hover {
+      transform: translateY(-5px);
+      background-color: rgba(80,80,80,0.8);
+    }
+
+    .spec-item {
+      display: flex; justify-content: space-between;
+      margin: 8px 0; color: #ccc;
+    }
+
+    .calculator, .lap-calculator, .weather-selector, .team-comparison {
+      margin-top: 30px; background: rgba(70,70,70,0.6);
+      border-radius: 10px; padding: 20px;
+    }
+
+    .calculator select, .calculator button,
+    .lap-calculator input, .lap-calculator button,
+    .weather-selector select, .weather-selector button,
+    .team-comparison select, .team-comparison button {
+      width: 100%; padding: 10px;
+      margin-bottom: 15px;
+      background: rgba(40,40,40,0.8); color: white;
+      border: 1px solid #555; border-radius: 5px;
+    }
+
+    .car-selector {
+      text-align: center; margin-top: 30px;
+    }
+
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 15px; margin-top: 15px;
+    }
+
+    .car-icon {
+      width: 100%; border-radius: 10px;
+      transition: transform 0.3s;
+      cursor: pointer; border: 2px solid transparent;
+    }
+
+    .car-icon:hover {
+      transform: scale(1.1);
+      border-color: #e10600;
+    }
+
+    .car-icon.selected {
+      border-color: #00d2be;
+      box-shadow: 0 0 15px #00d2be;
+    }
+
+    .result-box {
+      padding: 15px;
+      background: rgba(40,40,40,0.8);
+      border-radius: 8px;
+      margin-top: 15px;
+      border-left: 4px solid #00d2be;
+    }
+
+    .team-logo {
+      height: 40px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    .comparison-result {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 15px;
+    }
+
+    .team-stats {
+      text-align: center;
+      padding: 10px;
+      border-radius: 8px;
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    .weather-icon {
+      font-size: 2em;
+      margin: 10px 0;
+    }
+
+    .sunny { color: #f5a623; }
+    .rainy { color: #4a90e2; }
+    .cloudy { color: #d8d8d8; }
+  </style>
+</head>
+<body>
+
+  <video autoplay loop muted playsinline class="video-bg">
+    <source src="F1 25 Official Reveal Trailer.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container">
+    <h1><i class="fas fa-flag-checkered"></i> F1 Racing Game System Requirements</h1>
+    <p>Experience the thrill of Formula 1 racing - check if your system can handle the ultimate racing simulation!</p>
+
+    <h2>Minimum Requirements</h2>
+    <div class="specs-section">
+      <div class="spec-card">
+        <div class="spec-item"><span>CPU:</span><span>Intel i5-4460 / AMD FX-8350</span></div>
+        <div class="spec-item"><span>RAM:</span><span>8 GB</span></div>
+        <div class="spec-item"><span>GPU:</span><span>GTX 960 / Radeon RX 470</span></div>
+        <div class="spec-item"><span>Storage:</span><span>80 GB (HDD)</span></div>
+        <div class="spec-item"><span>VR Support:</span><span>No</span></div>
+      </div>
+    </div>
+
+    <h2>Recommended Requirements</h2>
+    <div class="specs-section">
+      <div class="spec-card">
+        <div class="spec-item"><span>CPU:</span><span>Intel i7-8700k / Ryzen 7 2700X</span></div>
+        <div class="spec-item"><span>RAM:</span><span>16 GB</span></div>
+        <div class="spec-item"><span>GPU:</span><span>RTX 2070 / RX 5700 XT</span></div>
+        <div class="spec-item"><span>Storage:</span><span>80 GB (SSD)</span></div>
+        <div class="spec-item"><span>VR Support:</span><span>Yes</span></div>
+      </div>
+    </div>
+
+    <h2>Ultra Settings (4K/120FPS)</h2>
+    <div class="specs-section">
+      <div class="spec-card">
+        <div class="spec-item"><span>CPU:</span><span>Intel i9-12900K / Ryzen 9 5950X</span></div>
+        <div class="spec-item"><span>RAM:</span><span>32 GB</span></div>
+        <div class="spec-item"><span>GPU:</span><span>RTX 3080 / RX 6800 XT</span></div>
+        <div class="spec-item"><span>Storage:</span><span>80 GB (NVMe SSD)</span></div>
+        <div class="spec-item"><span>VR Support:</span><span>High Refresh Rate</span></div>
+      </div>
+    </div>
+
+    <!-- FPS Calculator -->
+    <div class="calculator">
+      <h3><i class="fas fa-tachometer-alt"></i> Estimate Your FPS</h3>
+      <select id="f1CPU">
+        <option value="low">Low-end CPU</option>
+        <option value="mid" selected>Mid-range CPU</option>
+        <option value="high">High-end CPU</option>
+      </select>
+
+      <select id="f1GPU">
+        <option value="low">Low-end GPU</option>
+        <option value="mid" selected>Mid-range GPU</option>
+        <option value="high">High-end GPU</option>
+      </select>
+
+      <select id="f1Res">
+        <option value="1080">1080p</option>
+        <option value="1440">1440p</option>
+        <option value="4k">4K</option>
+      </select>
+
+      <button onclick="calculateF1FPS()">Calculate FPS</button>
+      <div id="f1FPSResult" class="result-box"></div>
+    </div>
+
+    <!-- Lap Time Calculator -->
+    <div class="lap-calculator">
+      <h3><i class="fas fa-stopwatch"></i> Lap Time Calculator</h3>
+      <p>Estimate your lap time based on car setup and track conditions</p>
+      
+      <select id="trackSelect">
+        <option value="monaco">Circuit de Monaco</option>
+        <option value="silverstone">Silverstone</option>
+        <option value="spa">Spa-Francorchamps</option>
+        <option value="monza">Monza</option>
+      </select>
+      
+      <select id="carSetup">
+        <option value="balanced">Balanced Setup</option>
+        <option value="speed">Speed Focused</option>
+        <option value="downforce">Downforce Focused</option>
+      </select>
+      
+      <select id="tireCompound">
+        <option value="soft">Soft (Fastest)</option>
+        <option value="medium">Medium (Balanced)</option>
+        <option value="hard">Hard (Durable)</option>
+      </select>
+      
+      <button onclick="calculateLapTime()">Calculate Lap Time</button>
+      <div id="lapTimeResult" class="result-box"></div>
+    </div>
+
+    <!-- Weather Selector -->
+    <div class="weather-selector">
+      <h3><i class="fas fa-cloud-sun"></i> Weather Conditions Simulator</h3>
+      <p>See how weather affects your race strategy</p>
+      
+      <select id="weatherType">
+        <option value="sunny">Sunny (Dry)</option>
+        <option value="cloudy">Cloudy</option>
+        <option value="light-rain">Light Rain</option>
+        <option value="heavy-rain">Heavy Rain</option>
+      </select>
+      
+      <button onclick="simulateWeatherEffects()">Simulate Weather</button>
+      <div id="weatherResult" class="result-box"></div>
+    </div>
+
+    <!-- Team Comparison -->
+    <div class="team-comparison">
+      <h3><i class="fas fa-trophy"></i> Team Performance Comparison</h3>
+      <p>Compare two F1 teams' performance stats</p>
+      
+      <div style="display: flex; gap: 10px;">
+        <select id="team1" style="flex: 1;">
+          <option value="mercedes">Mercedes</option>
+          <option value="redbull">Red Bull</option>
+          <option value="ferrari">Ferrari</option>
+          <option value="mclaren">McLaren</option>
+        </select>
+        
+        <select id="team2" style="flex: 1;">
+          <option value="redbull">Red Bull</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="ferrari">Ferrari</option>
+          <option value="mclaren">McLaren</option>
+        </select>
+      </div>
+      
+      <button onclick="compareTeams()">Compare Teams</button>
+      <div id="teamComparisonResult" class="result-box"></div>
+    </div>
+
+    <!-- Car Selector -->
+    <div class="car-selector">
+      <h2><i class="fas fa-car"></i> Choose Your F1 Car</h2>
+      <div class="car-grid" id="carGrid"></div>
+      <p id="carChoice"></p>
+    </div>
+  </div>
+
+  <script>
+    // FPS Calculator
+    function calculateF1FPS() {
+      const cpu = document.getElementById('f1CPU').value;
+      const gpu = document.getElementById('f1GPU').value;
+      const res = document.getElementById('f1Res').value;
+
+      let baseFPS = 60;
+      if (cpu === 'low') baseFPS -= 25;
+      else if (cpu === 'high') baseFPS += 40;
+
+      if (gpu === 'low') baseFPS -= 25;
+      else if (gpu === 'high') baseFPS += 50;
+
+      if (res === '1440') baseFPS *= 0.65;
+      if (res === '4k') baseFPS *= 0.4;
+
+      baseFPS = Math.round(baseFPS);
+      let rating = baseFPS > 120 ? '🏁 Ultra Smooth (Esports Ready)' :
+                   baseFPS > 80 ? '✅ Perfect for Racing' :
+                   baseFPS >= 60 ? '⚠️ Playable (Consider lowering settings)' :
+                   '❌ Below Minimum (Not recommended)';
+      document.getElementById('f1FPSResult').innerHTML = `
+        <strong>Estimated FPS:</strong> ~${baseFPS} FPS<br>
+        <strong>Rating:</strong> ${rating}<br>
+        ${baseFPS >= 120 ? '<i class="fas fa-check-circle"></i> VR ready at high refresh rates' : 
+         baseFPS >= 90 ? '<i class="fas fa-check"></i> Good for VR' : 
+         '<i class="fas fa-times"></i> Not ideal for VR'}
+      `;
+    }
+
+    // Lap Time Calculator
+    function calculateLapTime() {
+      const track = document.getElementById('trackSelect').value;
+      const setup = document.getElementById('carSetup').value;
+      const tires = document.getElementById('tireCompound').value;
+      
+      // Base times for each track (in seconds)
+      const trackTimes = {
+        monaco: 75,
+        silverstone: 88,
+        spa: 105,
+        monza: 82
+      };
+      
+      // Modifiers based on setup
+      const setupModifiers = {
+        balanced: 0,
+        speed: -1.5,
+        downforce: 2.0
+      };
+      
+      // Modifiers based on tires
+      const tireModifiers = {
+        soft: -2.0,
+        medium: 0,
+        hard: 1.5
+      };
+      
+      // Calculate final time
+      let lapTime = trackTimes[track] + setupModifiers[setup] + tireModifiers[tires];
+      
+      // Format as minutes:seconds.milliseconds
+      const minutes = Math.floor(lapTime / 60);
+      const seconds = Math.floor(lapTime % 60);
+      const milliseconds = Math.floor((lapTime % 1) * 1000);
+      
+      const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}.${milliseconds.toString().padStart(3, '0')}`;
+      
+      // Get track name
+      const trackNames = {
+        monaco: "Circuit de Monaco",
+        silverstone: "Silverstone",
+        spa: "Spa-Francorchamps",
+        monza: "Monza"
+      };
+      
+      document.getElementById('lapTimeResult').innerHTML = `
+        <strong>Track:</strong> ${trackNames[track]}<br>
+        <strong>Setup:</strong> ${setup.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}<br>
+        <strong>Tires:</strong> ${tires.charAt(0).toUpperCase() + tires.slice(1)} compound<br>
+        <strong>Estimated Lap Time:</strong> <span style="font-size:1.2em;color:#00d2be">${formattedTime}</span>
+      `;
+    }
+
+    // Weather Effects Simulator
+    function simulateWeatherEffects() {
+      const weather = document.getElementById('weatherType').value;
+      let effects = "";
+      let iconClass = "";
+      let icon = "";
+      
+      switch(weather) {
+        case "sunny":
+          effects = "Optimal grip conditions. Tire wear will be higher. Engine cooling more efficient.";
+          iconClass = "sunny";
+          icon = "fa-sun";
+          break;
+        case "cloudy":
+          effects = "Slightly reduced grip. Tire wear normal. No significant impact on performance.";
+          iconClass = "cloudy";
+          icon = "fa-cloud";
+          break;
+        case "light-rain":
+          effects = "Reduced grip. Consider intermediate tires. Braking distances increased by 15-20%.";
+          iconClass = "rainy";
+          icon = "fa-cloud-rain";
+          break;
+        case "heavy-rain":
+          effects = "Very low grip. Wet tires required. Braking distances increased by 30-40%. Risk of aquaplaning.";
+          iconClass = "rainy";
+          icon = "fa-cloud-showers-heavy";
+          break;
+      }
+      
+      document.getElementById('weatherResult').innerHTML = `
+        <div class="weather-icon ${iconClass}">
+          <i class="fas ${icon}"></i>
+        </div>
+        <strong>Weather:</strong> ${weather.replace(/-/g, ' ').replace(/(^|\s)\S/g, l => l.toUpperCase())}<br>
+        <strong>Effects:</strong> ${effects}
+      `;
+    }
+
+    // Team Comparison
+    function compareTeams() {
+      const team1 = document.getElementById('team1').value;
+      const team2 = document.getElementById('team2').value;
+      
+      if (team1 === team2) {
+        document.getElementById('teamComparisonResult').innerHTML = "Please select two different teams to compare.";
+        return;
+      }
+      
+      // Team data (simplified for demo)
+      const teams = {
+        mercedes: {
+          name: "Mercedes",
+          logo: "mercedes-logo.png",
+          speed: 92,
+          cornering: 88,
+          reliability: 95,
+          pitstop: 90
+        },
+        redbull: {
+          name: "Red Bull",
+          logo: "redbull-logo.png",
+          speed: 95,
+          cornering: 96,
+          reliability: 88,
+          pitstop: 94
+        },
+        ferrari: {
+          name: "Ferrari",
+          logo: "ferrari-logo.png",
+          speed: 94,
+          cornering: 90,
+          reliability: 85,
+          pitstop: 88
+        },
+        mclaren: {
+          name: "McLaren",
+          logo: "mclaren-logo.png",
+          speed: 88,
+          cornering: 86,
+          reliability: 90,
+          pitstop: 85
+        }
+      };
+      
+      const t1 = teams[team1];
+      const t2 = teams[team2];
+      
+      let comparisonHTML = `
+        <div class="comparison-result">
+          <div class="team-stats" style="background: rgba(0,0,0,0.2);">
+            <h4><img src="${t1.logo}" class="team-logo">${t1.name}</h4>
+            <div class="spec-item"><span>Top Speed:</span><span>${t1.speed}</span></div>
+            <div class="spec-item"><span>Cornering:</span><span>${t1.cornering}</span></div>
+            <div class="spec-item"><span>Reliability:</span><span>${t1.reliability}</span></div>
+            <div class="spec-item"><span>Pit Stop:</span><span>${t1.pitstop}</span></div>
+          </div>
+          
+          <div class="team-stats" style="background: rgba(0,0,0,0.2);">
+            <h4><img src="${t2.logo}" class="team-logo">${t2.name}</h4>
+            <div class="spec-item"><span>Top Speed:</span><span>${t2.speed}</span></div>
+            <div class="spec-item"><span>Cornering:</span><span>${t2.cornering}</span></div>
+            <div class="spec-item"><span>Reliability:</span><span>${t2.reliability}</span></div>
+            <div class="spec-item"><span>Pit Stop:</span><span>${t2.pitstop}</span></div>
+          </div>
+        </div>
+        
+        <div style="margin-top: 15px; text-align: center;">
+          <strong>Head-to-head:</strong> ${
+            (t1.speed + t1.cornering + t1.reliability + t1.pitstop) > 
+            (t2.speed + t2.cornering + t2.reliability + t2.pitstop) ? 
+            `${t1.name} has better overall performance` : 
+            `${t2.name} has better overall performance`
+          }
+        </div>
+      `;
+      
+      document.getElementById('teamComparisonResult').innerHTML = comparisonHTML;
+    }
+
+    // Car Selector
+    const f1Cars = [
+      { name: 'Mercedes W14', img: 'mercedes-f1.jpg', topSpeed: 325, handling: 95 },
+      { name: 'Red Bull RB19', img: 'redbull-f1.jpg', topSpeed: 330, handling: 98 },
+      { name: 'Ferrari SF-23', img: 'ferrari-f1.jpg', topSpeed: 332, handling: 96 },
+      { name: 'McLaren MCL60', img: 'mclaren-f1.jpg', topSpeed: 320, handling: 94 },
+      { name: 'Aston Martin AMR23', img: 'aston-f1.jpg', topSpeed: 322, handling: 93 }
+    ];
+
+    const carGrid = document.getElementById('carGrid');
+    const carChoice = document.getElementById('carChoice');
+
+    f1Cars.forEach(car => {
+      const carDiv = document.createElement('div');
+      carDiv.innerHTML = `
+        <img src="${car.img}" alt="${car.name}" class="car-icon">
+        <div style="text-align: center; margin-top: 5px; font-size: 0.9em;">${car.name}</div>
+      `;
+      carDiv.addEventListener('click', function () {
+        document.querySelectorAll('.car-icon').forEach(c => c.classList.remove('selected'));
+        this.querySelector('img').classList.add('selected');
+        carChoice.innerHTML = `
+          🏎️ You chose the <strong>${car.name}</strong>!<br>
+          <small>Top Speed: ${car.topSpeed} km/h | Handling: ${car.handling}/100</small>
+        `;
+      });
+      carGrid.appendChild(carDiv);
+    });
+
+    // Initialize with default calculations
+    calculateF1FPS();
+  </script>
+
+</body>
+</html>

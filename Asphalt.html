@@ -1,0 +1,225 @@
+<!-- Save this as "asphalt-system-requirements.html" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Asphalt Racing Game - System Requirements</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* Styling here (same as your Overwatch version for consistency) */
+    body, html {
+      margin: 0; padding: 0; box-sizing: border-box;
+      height: 100%; font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .video-bg {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; z-index: -1;
+      filter: brightness(0.3);
+    }
+
+    .container {
+      max-width: 1000px; margin: auto;
+      padding: 40px 20px; background: rgba(30,30,30,0.75);
+      border-radius: 15px; backdrop-filter: blur(10px);
+      color: #f0f0f0; box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    h1, h2 {
+      text-align: center; margin-bottom: 20px;
+      color: #f99e1a;
+    }
+
+    h2 { color: #00b4ff; margin-top: 40px; }
+
+    .specs-section {
+      display: flex; flex-wrap: wrap;
+      gap: 20px; justify-content: center;
+    }
+
+    .spec-card {
+      background-color: rgba(60,60,60,0.7);
+      padding: 20px; border-radius: 10px;
+      flex: 1; min-width: 280px;
+      transition: 0.3s ease;
+    }
+
+    .spec-card:hover {
+      transform: translateY(-5px);
+      background-color: rgba(80,80,80,0.8);
+    }
+
+    .spec-item {
+      display: flex; justify-content: space-between;
+      margin: 8px 0; color: #ccc;
+    }
+
+    .calculator {
+      margin-top: 30px; background: rgba(70,70,70,0.6);
+      border-radius: 10px; padding: 20px;
+    }
+
+    .calculator select, .calculator button {
+      width: 100%; padding: 10px;
+      margin-bottom: 15px;
+      background: rgba(40,40,40,0.8); color: white;
+      border: 1px solid #555; border-radius: 5px;
+    }
+
+    .car-selector {
+      text-align: center; margin-top: 30px;
+    }
+
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 15px; margin-top: 15px;
+    }
+
+    .car-icon {
+      width: 100%; border-radius: 10px;
+      transition: transform 0.3s;
+      cursor: pointer; border: 2px solid transparent;
+    }
+
+    .car-icon:hover {
+      transform: scale(1.1);
+      border-color: #f99e1a;
+    }
+
+    .car-icon.selected {
+      border-color: #00b4ff;
+      box-shadow: 0 0 15px #00b4ff;
+    }
+  </style>
+</head>
+<body>
+
+  <video autoplay loop muted playsinline class="video-bg">
+    <source src="Asphalt 9_ Legends - Official Soft Launch Preview.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container">
+    <h1>Asphalt Racing Game System Requirements</h1>
+    <p>Burn rubber and take on world-class racers — but first, make sure your system can keep up!</p>
+
+    <h2>Minimum Requirements</h2>
+    <div class="specs-section">
+      <div class="spec-card">
+        <div class="spec-item"><span>CPU:</span><span>Intel Core i3 / AMD FX 4300</span></div>
+        <div class="spec-item"><span>RAM:</span><span>4 GB</span></div>
+        <div class="spec-item"><span>GPU:</span><span>GTX 650 / Radeon HD 7750</span></div>
+        <div class="spec-item"><span>Storage:</span><span>20 GB (HDD)</span></div>
+      </div>
+    </div>
+
+    <h2>Recommended Requirements</h2>
+    <div class="specs-section">
+      <div class="spec-card">
+        <div class="spec-item"><span>CPU:</span><span>Intel Core i5 / Ryzen 5</span></div>
+        <div class="spec-item"><span>RAM:</span><span>8 GB</span></div>
+        <div class="spec-item"><span>GPU:</span><span>GTX 970 / RX 570</span></div>
+        <div class="spec-item"><span>Storage:</span><span>20 GB (SSD)</span></div>
+      </div>
+    </div>
+
+    <h2>High Performance (120+ FPS)</h2>
+    <div class="specs-section">
+      <div class="spec-card">
+        <div class="spec-item"><span>CPU:</span><span>Intel Core i7 / Ryzen 7</span></div>
+        <div class="spec-item"><span>RAM:</span><span>16 GB</span></div>
+        <div class="spec-item"><span>GPU:</span><span>RTX 3060 / RX 6700 XT</span></div>
+        <div class="spec-item"><span>Storage:</span><span>20 GB (NVMe SSD)</span></div>
+      </div>
+    </div>
+
+    <!-- FPS Calculator -->
+    <div class="calculator">
+      <h3>Estimate Your FPS</h3>
+      <select id="asphaltCPU">
+        <option value="low">Low-end CPU</option>
+        <option value="mid" selected>Mid-range CPU</option>
+        <option value="high">High-end CPU</option>
+      </select>
+
+      <select id="asphaltGPU">
+        <option value="low">Low-end GPU</option>
+        <option value="mid" selected>Mid-range GPU</option>
+        <option value="high">High-end GPU</option>
+      </select>
+
+      <select id="asphaltRes">
+        <option value="1080">1080p</option>
+        <option value="1440">1440p</option>
+        <option value="4k">4K</option>
+      </select>
+
+      <button onclick="calculateAsphaltFPS()">Calculate FPS</button>
+      <div id="asphaltFPSResult"></div>
+    </div>
+
+    <!-- Car Selector -->
+    <div class="car-selector">
+      <h2>Choose Your Ride</h2>
+      <div class="car-grid" id="carGrid"></div>
+      <p id="carChoice"></p>
+    </div>
+  </div>
+
+  <script>
+    // FPS Calculator
+    function calculateAsphaltFPS() {
+      const cpu = document.getElementById('asphaltCPU').value;
+      const gpu = document.getElementById('asphaltGPU').value;
+      const res = document.getElementById('asphaltRes').value;
+
+      let baseFPS = 60;
+      if (cpu === 'low') baseFPS -= 20;
+      else if (cpu === 'high') baseFPS += 30;
+
+      if (gpu === 'low') baseFPS -= 20;
+      else if (gpu === 'high') baseFPS += 40;
+
+      if (res === '1440') baseFPS *= 0.7;
+      if (res === '4k') baseFPS *= 0.5;
+
+      baseFPS = Math.round(baseFPS);
+      let rating = baseFPS > 120 ? '🔥 Competitive Racer' :
+                   baseFPS > 60 ? '✅ Smooth Ride' :
+                   baseFPS >= 30 ? '⚠️ Playable' :
+                   '❌ Unplayable';
+      document.getElementById('asphaltFPSResult').textContent = `Estimated FPS: ~${baseFPS} FPS (${rating})`;
+    }
+
+    // Car Selector
+    const cars = [
+      { name: 'Lamborghini', img: 'images (3).jpeg' },
+      { name: 'Ferrari', img: 'download (4).jpeg' },
+      { name: 'Bugatti', img: 'download (5).jpeg' },
+      { name: 'Porsche', img: 'download (6).jpeg' }
+    ];
+
+    const carGrid = document.getElementById('carGrid');
+    const carChoice = document.getElementById('carChoice');
+
+    cars.forEach(car => {
+      const img = document.createElement('img');
+      img.src = car.img;
+      img.alt = car.name;
+      img.classList.add('car-icon');
+      img.addEventListener('click', function () {
+        document.querySelectorAll('.car-icon').forEach(c => c.classList.remove('selected'));
+        this.classList.add('selected');
+        carChoice.innerHTML = `🚗 You chose the <strong>${car.name}</strong>! Get ready to race!`;
+      });
+      carGrid.appendChild(img);
+    });
+  </script>
+
+</body>
+</html>

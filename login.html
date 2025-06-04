@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f0124, #1a005c);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('futuristic-video-game-controller-background-with-text-space_1017-54730.avif'); 
+    }
+
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-size: 400px, 400px;
+    }
+
+    .login-box {
+      background: rgba(28, 0, 82, 0.6);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #b300ff;
+      width: 310px;
+      color: white;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .login-box h2 {
+      margin-bottom: 30px;
+    }
+
+    .input-box {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .input-box label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      background: #007bff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      color: white;
+      cursor: pointer;
+      margin-bottom: 15px;
+    }
+
+    .separator {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .separator::before,
+    .separator::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid #aaa;
+    }
+
+    .separator:not(:empty)::before {
+      margin-right: .75em;
+    }
+
+    .separator:not(:empty)::after {
+      margin-left: .75em;
+    }
+
+    .google-btn, .facebook-btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .google-btn {
+      background: #db4437;
+      color: white;
+    }
+
+    .facebook-btn {
+      background: #3b5998;
+      color: white;
+    }
+
+    .google-btn i, .facebook-btn i {
+      margin-right: 8px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="background"></div>
+
+  <div class="login-box">
+    <h2>Login to Your Account</h2>
+    <form id="loginForm">
+      <div class="input-box">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="input-box">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="login-btn">Login</button>
+      <div class="separator">or</div>
+      <button type="button" class="google-btn" id="googleLogin"><i class="fab fa-google"></i> Login with Google</button>
+      <button type="button" class="facebook-btn" id="facebookLogin"><i class="fab fa-facebook-f"></i> Login with Facebook</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Regular form login
+      document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent actual form submission
+        // Here you would normally validate credentials
+        // For demo, we'll just redirect
+        window.location.href = 'index.html';
+      });
+      
+      // Google login
+      document.getElementById('googleLogin').addEventListener('click', function() {
+        // Here you would normally implement Google OAuth
+        // For demo, we'll just redirect
+        window.location.href = 'index.html';
+      });
+      
+      // Facebook login
+      document.getElementById('facebookLogin').addEventListener('click', function() {
+        // Here you would normally implement Facebook OAuth
+        // For demo, we'll just redirect
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
+</body>
+</html>

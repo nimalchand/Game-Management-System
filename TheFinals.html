@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rainbow Six Siege System Requirements</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        /* Universal box-sizing for consistent layout */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and HTML root element styles */
+        body, html {
+            height: 100%; /* Full height for video background */
+            font-family: 'Inter', sans-serif; /* Primary font */
+            scroll-behavior: smooth; /* Smooth scrolling for anchors */
+            overflow-x: hidden; /* Prevent horizontal scrollbar */
+            background-color: #1a1a1a; /* Fallback background color */
+        }
+
+        /* Background Video Styles */
+        .video-bg {
+            position: fixed; /* Fixed position to cover the viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire area without distortion */
+            z-index: -1; /* Place behind other content */
+            filter: brightness(0.3); /* Darken the video for better text readability */
+            transition: filter 0.5s ease; /* Smooth transition for brightness changes */
+        }
+
+        /* Main Container Styles */
+        .container {
+            max-width: 1000px; /* Max width for content */
+            margin: 20px auto; /* Center the container with some top/bottom margin */
+            padding: 40px 20px; /* Internal padding */
+            background: rgba(30, 30, 30, 0.85); /* Semi-transparent dark background */
+            border-radius: 15px; /* Rounded corners */
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7); /* Stronger shadow for depth */
+            color: #f0f0f0; /* Light text color */
+            animation: fadeIn 1.5s ease; /* Fade-in animation on load */
+            position: relative; /* For z-index context */
+            overflow: hidden; /* Hide overflowing content, especially for parallax */
+        }
+
+        /* Fade-in Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Heading Styles */
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff6b45; /* Orange accent color for main titles */
+        }
+
+        h2 {
+            margin-top: 40px;
+            border-bottom: 2px solid #444; /* Separator line */
+            padding-bottom: 10px;
+            color: #45a7ff; /* Blue accent color for section titles */
+        }
+
+        /* Game Info Section */
+        .game-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            background: rgba(50, 50, 50, 0.5); /* Semi-transparent background */
+            border-radius: 10px;
+            padding: 15px;
+            position: relative;
+            z-index: 1; /* Ensure it's above parallax elements */
+        }
+
+        .game-info img {
+            width: 90px;
+            height: 90px;
+            border-radius: 10px;
+            object-fit: contain; /* Ensure logo fits without cropping */
+        }
+
+        /* Specifications Section Layout */
+        .specs-section {
+            display: flex;
+            flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+            gap: 20px; /* Space between spec cards */
+            justify-content: center; /* Center cards horizontally */
+        }
+
+        /* Individual Specification Card */
+        .spec-card {
+            background-color: rgba(60, 60, 60, 0.7); /* Semi-transparent dark background */
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1; /* Allow cards to grow and shrink */
+            min-width: 280px; /* Minimum width before wrapping */
+            transition: all 0.3s ease; /* Smooth hover effects */
+            box-shadow: 0 0 15px rgba(0,0,0,0.4); /* Subtle shadow */
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Pseudo-element for hover glow effect */
+        .spec-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,107,69,0.1) 0%, rgba(69,167,255,0) 70%); /* Gradient glow */
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        /* Hover effects for spec cards */
+        .spec-card:hover {
+            transform: translateY(-5px); /* Lift card on hover */
+            background-color: rgba(80, 80, 80, 0.8); /* Slightly brighter on hover */
+            box-shadow: 0 0 25px rgba(255,107,69,0.3); /* Enhanced shadow with accent color */
+        }
+
+        .spec-card:hover::before {
+            opacity: 1; /* Show glow on hover */
+        }
+
+        .spec-card h4 {
+            color: #ffffff; /* White heading text */
+            margin-bottom: 15px;
+            border-bottom: 1px solid #999; /* Separator line */
+            padding-bottom: 8px;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between; /* Space out label and value */
+            margin: 8px 0;
+            color: #ccc; /* Lighter grey for text */
+        }
+
+        /* Button Styles */
+        .button {
+            display: inline-block;
+            background-color: #ff6b45; /* Orange button color */
+            color: #fff;
+            padding: 12px 24px;
+            margin-top: 30px;
+            text-align: center;
+            text-decoration: none; /* Remove underline */
+            font-weight: bold;
+            border-radius: 6px;
+            transition: all 0.3s ease; /* Smooth transitions */
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Pseudo-element for button hover shimmer effect */
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        /* Button hover effects */
+        .button:hover {
+            background-color: #e65a35; /* Darker orange on hover */
+            transform: translateY(-2px); /* Lift button slightly */
+            box-shadow: 0 5px 15px rgba(255,107,69,0.4); /* Shadow with accent color */
+        }
+
+        .button:hover::before {
+            left: 100%; /* Move shimmer across */
+        }
+
+        .center-text {
+            text-align: center; /* Center text within its container */
+        }
+
+        /* Footer Styles */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+
+        /* Social Icons in Footer */
+        .social-icons a {
+            color: #ccc;
+            margin: 0 10px;
+            font-size: 1.2em;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #fff;
+            transform: translateY(-3px); /* Lift icon on hover */
+        }
+
+        /* FPS Calculator Styles */
+        .calculator {
+            background: rgba(70, 70, 70, 0.6);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Top border for calculator */
+        .calculator::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b45, #45a7ff); /* Gradient border */
+        }
+
+        .calculator h3 {
+            margin-bottom: 15px;
+            color: #45a7ff; /* Blue accent for calculator heading */
+        }
+
+        .calculator label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ddd;
+        }
+
+        .calculator select, .calculator input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            background: rgba(40, 40, 40, 0.8);
+            border: 1px solid #555;
+            border-radius: 5px;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .calculator select:focus, .calculator input:focus {
+            outline: none;
+            border-color: #ff6b45; /* Highlight on focus */
+            box-shadow: 0 0 5px rgba(255,107,69,0.5);
+        }
+
+        .calculator button {
+            background: #ff6b45;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .calculator button:hover {
+            background: #e65a35;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(255,107,69,0.3);
+        }
+
+        #fps-result {
+            margin-top: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ff6b45;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(40, 40, 40, 0.6);
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        /* Operator Role Selector Styles */
+        .operator-selector {
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .operator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .operator-card {
+            background: rgba(50, 50, 50, 0.6);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent; /* Border for selection */
+        }
+
+        .operator-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: #ff6b45; /* Orange border on hover */
+        }
+
+        .operator-card.selected {
+            border-color: #45a7ff; /* Blue border when selected */
+            box-shadow: 0 0 20px rgba(69,167,255,0.5); /* Blue glow when selected */
+        }
+
+        .operator-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .operator-name {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .operator-desc {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Real-time System Scanner Styles */
+        .scanner {
+            background: rgba(70, 70, 70, 0.6);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        /* Bottom border for scanner */
+        .scanner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #45a7ff, #ff6b45); /* Gradient border */
+        }
+
+        .scanner h3 {
+            margin-bottom: 15px;
+            color: #45a7ff;
+        }
+
+        .scan-progress {
+            height: 10px;
+            background: rgba(40, 40, 40, 0.8);
+            border-radius: 5px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .scan-bar {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #45a7ff, #ff6b45);
+            transition: width 1s; /* Smooth progress bar animation */
+        }
+
+        .scan-results {
+            display: none; /* Hidden by default */
+            margin-top: 20px;
+        }
+
+        .scan-result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #444;
+        }
+
+        .scan-result-label {
+            color: #aaa;
+        }
+
+        .scan-result-value {
+            font-weight: bold;
+            color: #45a7ff; /* Blue accent for result values */
+        }
+
+        /* Parallax Elements (Font Awesome icons) */
+        .parallax-element {
+            position: absolute;
+            opacity: 0.1; /* Subtle opacity */
+            z-index: -1; /* Behind content */
+            font-family: 'Font Awesome 6 Free'; /* Ensure Font Awesome is used for icons */
+            font-weight: 900; /* For solid icons */
+            pointer-events: none; /* Ensure elements don't interfere with clicks */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .game-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .spec-card {
+                min-width: 100%; /* Full width on small screens */
+            }
+
+            .operator-grid {
+                grid-template-columns: 1fr; /* Single column on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <video autoplay loop muted playsinline class="video-bg">
+        <source src="Overwatch 2 Launch Trailer.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="parallax-element" id="parallax1" style="top: 20%; left: 5%; font-size: 3rem;">&#xf06d;</div> <div class="parallax-element" id="parallax2" style="top: 60%; right: 5%; font-size: 3rem;">&#xf0e3;</div> <div class="parallax-element" id="parallax3" style="top: 30%; right: 10%; font-size: 2rem;">&#xf87b;</div> <div class="parallax-element" id="parallax4" style="bottom: 20%; left: 10%; font-size: 2rem;">&#xf05b;</div> <div class="container">
+        <h1>The Finals Requirements</h1>
+
+        <div class="game-info">
+            <img src="download (2).jpeg" alt="The Finals Logo">
+            <div>
+                <h3>Tom Clancy's The Finals Six Siege</h3>
+                <p>Master the Art of Destruction and Gadgetry</p>
+            </div>
+        </div>
+
+        <p>Prepare for intense tactical combat! Review the system requirements below to ensure your PC is ready for the high-stakes, close-quarters battles of Rainbow Six Siege.</p>
+
+        <h2>Minimum System Requirements</h2>
+        <div class="specs-section">
+            <div class="spec-card">
+                <h4>Processor</h4>
+                <div class="spec-item"><span>CPU:</span><span>Intel Core i3 560 @ 3.3 GHz / AMD Phenom II X4 945 @ 3.0 GHz</span></div>
+                <div class="spec-item"><span>Speed:</span><span>3.0 GHz</span></div>
+            </div>
+            <div class="spec-card">
+                <h4>Memory & Storage</h4>
+                <div class="spec-item"><span>RAM:</span><span>6 GB</span></div>
+                <div class="spec-item"><span>Storage:</span><span>61 GB</span></div>
+            </div>
+            <div class="spec-card">
+                <h4>Graphics & OS</h4>
+                <div class="spec-item"><span>GPU:</span><span>NVIDIA GeForce GTX 460 / AMD Radeon HD 5870 (1GB VRAM)</span></div>
+                <div class="spec-item"><span>OS:</span><span>Windows 7, Windows 8.1, Windows 10 (64-bit)</span></div>
+            </div>
+        </div>
+
+        <h2>Recommended System Requirements</h2>
+        <div class="specs-section">
+            <div class="spec-card">
+                <h4>Processor</h4>
+                <div class="spec-item"><span>CPU:</span><span>Intel Core i5-2500K @ 3.3 GHz / AMD FX-8120 @ 3.1 GHz</span></div>
+                <div class="spec-item"><span>Speed:</span><span>3.1 GHz</span></div>
+            </div>
+            <div class="spec-card">
+                <h4>Memory & Storage</h4>
+                <div class="spec-item"><span>RAM:</span><span>8 GB</span></div>
+                <div class="spec-item"><span>Storage:</span><span>61 GB SSD</span></div>
+            </div>
+            <div class="spec-card">
+                <h4>Graphics & OS</h4>
+                <div class="spec-item"><span>GPU:</span><span>NVIDIA GeForce GTX 670 / AMD Radeon HD 7970 (2GB VRAM)</span></div>
+                <div class="spec-item"><span>OS:</span><span>Windows 7, Windows 8.1, Windows 10 (64-bit)</span></div>
+            </div>
+        </div>
+
+        <h2>High Refresh Rate / 4K Settings</h2>
+        <div class="specs-section">
+            <div class="spec-card">
+                <h4>Processor</h4>
+                <div class="spec-item"><span>CPU:</span><span>Intel Core i7-6700K / AMD Ryzen 7 1700X</span></div>
+                <div class="spec-item"><span>Speed:</span><span>3.4 GHz</span></div>
+            </div>
+            <div class="spec-card">
+                <h4>Memory & Storage</h4>
+                <div class="spec-item"><span>RAM:</span><span>16 GB</span></div>
+                <div class="spec-item"><span>Storage:</span><span>61 GB NVMe SSD</span></div>
+            </div>
+            <div class="spec-card">
+                <h4>Graphics & OS</h4>
+                <div class="spec-item"><span>GPU:</span><span>NVIDIA GeForce GTX 1070 / RTX 2060 / AMD Radeon RX Vega 56 / RX 5700</span></div>
+                <div class="spec-item"><span>OS:</span><span>Windows 10/11 (64-bit)</span></div>
+            </div>
+        </div>
+
+        <div class="calculator">
+            <h3>FPS Performance Estimator</h3>
+            <form id="fpsCalculator">
+                <label for="cpu">Select Your CPU:</label>
+                <select id="cpu">
+                    <option value="low">Low-end (Core i3/FX-4350)</option>
+                    <option value="mid" selected>Mid-range (Core i5/Ryzen 5)</option>
+                    <option value="high">High-end (Core i7/Ryzen 7)</option>
+                </select>
+
+                <label for="gpu">Select Your GPU:</label>
+                <select id="gpu">
+                    <option value="low">Low-end (GTX 660/HD 7850)</option>
+                    <option value="mid" selected>Mid-range (GTX 970/R9 390)</option>
+                    <option value="high">High-end (RTX 2060/RX 5700 XT)</option>
+                </select>
+
+                <label for="resolution">Select Resolution:</label>
+                <select id="resolution">
+                    <option value="1080">1080p</option>
+                    <option value="1440">1440p</option>
+                    <option value="4k">4K</option>
+                </select>
+
+                <label for="settings">Graphics Settings:</label>
+                <select id="settings">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                    <option value="ultra">Ultra</option>
+                </select>
+
+                <button type="button" id="calculateFPS">Calculate Estimated FPS</button>
+                <div id="fps-result"></div>
+            </form>
+        </div>
+
+        <div class="operator-selector">
+            <h3>Choose Your Operator Role</h3>
+            <div class="operator-grid" id="operatorGrid">
+                <div class="operator-card" data-role="entry-fragger">
+                    <div class="operator-icon">&#xf062;</div> <div class="operator-name">Entry Fragger</div>
+                    <div class="operator-desc">First to push, get early picks.</div>
+                </div>
+                <div class="operator-card" data-role="support">
+                    <div class="operator-icon">&#xf0b1;</div> <div class="operator-name">Support</div>
+                    <div class="operator-desc">Breach walls, provide utility.</div>
+                </div>
+                <div class="operator-card" data-role="flex">
+                    <div class="operator-icon">&#xf074;</div> <div class="operator-name">Flex</div>
+                    <div class="operator-desc">Adapt to team needs.</div>
+                </div>
+                <div class="operator-card" data-role="anchor">
+                    <div class="operator-icon">&#xf13d;</div> <div class="operator-name">Anchor</div>
+                    <div class="operator-desc">Hold the objective, deny entry.</div>
+                </div>
+                <div class="operator-card" data-role="roamer">
+                    <div class="operator-icon">&#xf70c;</div> <div class="operator-name">Roamer</div>
+                    <div class="operator-desc">Flank attackers, waste time.</div>
+                </div>
+            </div>
+            <div id="operatorResult" style="margin-top: 20px; font-size: 1.2em;"></div>
+        </div>
+
+        <div class="scanner">
+            <h3>System Compatibility Scanner</h3>
+            <p>Check how well your current system can run Rainbow Six Siege</p>
+            <button id="startScan" class="button" style="width: 100%;">Start System Scan</button>
+            
+            <div class="scan-progress">
+                <div class="scan-bar" id="scanBar"></div>
+            </div>
+            
+            <div class="scan-results" id="scanResults">
+                <h4>Scan Results:</h4>
+                <div class="scan-result-item">
+                    <span class="scan-result-label">CPU Performance:</span>
+                    <span class="scan-result-value" id="cpuResult">-</span>
+                </div>
+                <div class="scan-result-item">
+                    <span class="scan-result-label">GPU Performance:</span>
+                    <span class="scan-result-value" id="gpuResult">-</span>
+                </div>
+                <div class="scan-result-item">
+                    <span class="scan-result-label">RAM:</span>
+                    <span class="scan-result-value" id="ramResult">-</span>
+                </div>
+                <div class="scan-result-item">
+                    <span class="scan-result-label">Storage:</span>
+                    <span class="scan-result-value" id="storageResult">-</span>
+                </div>
+                <div class="scan-result-item">
+                    <span class="scan-result-label">Overall Rating:</span>
+                    <span class="scan-result-value" id="overallResult">-</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="center-text">
+            <a href="https://www.ubisoft.com/en-us/game/rainbow-six/siege" target="_blank" class="button">Visit Official Rainbow Six Siege Website</a>
+            <a href="https://store.steampowered.com/app/359550/Tom_Clancys_Rainbow_Six_Siege/" class="button" style="margin-left: 10px; background-color: #45a7ff;">Get on Steam</a>
+        </div>
+
+        <footer>
+            <p>© 2025 Ubisoft Entertainment. All Rights Reserved. Tom Clancy’s, Rainbow Six, The Soldier Icon, Ubisoft and the Ubisoft logo are registered or unregistered trademarks of Ubisoft Entertainment in the U.S. and/or other countries.</p>
+            <div class="social-icons">
+                <a href="https://discord.gg/rainbow6" target="_blank"><i class="fab fa-discord"></i></a>
+                <a href="https://twitter.com/Rainbow6Game" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com/embed/sYJj-g3n0mQ?autoplay=0&mute=1" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.twitch.tv/directory/game/Rainbow%20Six%20Siege" target="_blank"><i class="fab fa-twitch"></i></a>
+                <a href="https://www.reddit.com/r/Rainbow6/" target="_blank"><i class="fab fa-reddit"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="rainbow_six_siege_script.js"></script>
+</body>
+</html>
