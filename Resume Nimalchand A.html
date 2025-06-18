@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nimalchand A - Resume</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Layout for left header and right content */
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar header on the left */
+    header {
+      background-color: #f57c00;
+      color: #ffffff;
+      width: 280px;
+      padding: 30px 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    header img {
+      width: 120px;
+      height: auto;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      margin-bottom: 15px;
+    }
+
+    header .contact {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    header .contact p {
+      margin: 10px 0;
+    }
+
+    /* Main content container on the right */
+    .container {
+      flex-grow: 1;
+      background-color: #fef9e7;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    .main h2 {
+      color: #f57c00;
+      border-bottom: 3px solid #ffd54f;
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+    }
+
+    .main ul {
+      list-style: square inside;
+      padding-left: 0;
+    }
+
+    .main ul li {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .main table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+    }
+
+    .main table th,
+    .main table td {
+      border: 1px solid #f57c00;
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    .main table th {
+      background-color: #f57c00;
+      color: white;
+    }
+
+    .main table tr:nth-child(even) {
+      background-color: #fff8e1;
+    }
+
+    @media (max-width: 768px) {
+      .layout {
+        flex-direction: column;
+      }
+
+      header {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    footer {
+      text-align: center;
+      background-color: #f57c00;
+      color: #ffffff;
+      padding: 10px;
+      margin-top: 20px;
+    }
+
+    footer p {
+      font-size: 14px;
+    }
+
+    a {
+      color: #f57c00;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <header>
+      <img src="c:\Users\NIMALCHAND\Pictures\Screenshots\Screenshot 2025-03-06 112823.png" alt="Nimalchand A's Profile Photo">
+      <h1>Nimalchand A</h1>
+      <p>AI Engineering Student | Passionate Programmer</p>
+      <div class="contact">
+        <p><strong>Email:</strong> nimalchand71@gmail.com</p>
+        <p><strong>Phone:</strong> +91 9645889531</p>
+        <p><strong>Address:</strong> Kollam, Kerala, India</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="main">
+        <section>
+          <h2>Summary</h2>
+          <p>A dedicated engineering student with expertise in programming and problem-solving. Driven to apply technical knowledge to solve real-world challenges.</p>
+        </section>
+
+        <section>
+          <h2>Education</h2>
+          <table>
+            <tr>
+              <th>Course</th>
+              <th>Institution</th>
+              <th>Score</th>
+            </tr>
+            <tr>
+              <td>B.Tech in Computer Engineering</td>
+              <td>Amrita Vishwa Vidyapeetham</td>
+              <td>SGPA: 7.2</td>
+            </tr>
+            <tr>
+              <td>12<sup>th</sup> STATE</td>
+              <td>BJSM Madathil VHSS</td>
+              <td>Marks: 90%</td>
+            </tr>
+            <tr>
+              <td>10<sup>th</sup> STATE</td>
+              <td>BJSM Madathil VHSS</td>
+              <td>Marks: 90%</td>
+            </tr>
+          </table>
+        </section>
+
+        <section>
+          <h2>Skills</h2>
+          <ul>
+            <li>Programming Languages: Java, Python, HTML, CSS, Assembly</li>
+            <li>Java Debugging and Optimization</li>
+            <li>Web Development Fundamentals (HTML & CSS)</li>
+            <li>Complex Number Operations in Programming</li>
+            <li>Assembler Development</li>
+            <li>Problem-Solving & Logical Thinking</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Workshops & Certifications</h2>
+          <ul>
+            <li>Embedded Systems Design Workshop</li>
+            <li>Advanced Java Programming Certification</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Hobbies</h2>
+          <ul>
+            <li>Programming & Coding</li>
+            <li>Developing and Debugging Java Applications</li>
+            <li>Creating Web Pages with HTML & CSS</li>
+            <li>Participating in Hackathons</li>
+          </ul>
+        </section>
+      </div>
+
+      <footer>
+        <p>&copy; 2025 Nimalchand A. All rights reserved.</p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
